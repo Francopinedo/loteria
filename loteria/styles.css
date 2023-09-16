@@ -1,3 +1,17 @@
-:root {
-    background-color: black !important;
+*{
+    padding: 0;
+    margin: 0;
+    color: #EEEEEE;
+    } 
+ header,body{
+    background-color: #303841;
+ }
+
+#header-image{
+    width: 5px !important;
+    height: 5px !important;
+}
+#logo{
+width: 3%;
+background-color:  none !important;
 }
