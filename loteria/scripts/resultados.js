@@ -1,7 +1,23 @@
 
 function obtenerDatosDeLoteria() {
+    
+    function generarNuevoLink() {
+        // Obtener la fecha actual en el formato "YYYY-MM-DD"
+        const fechaActual = new Date().toISOString().split('T')[0];
+    
+        // URL base antes de la fecha
+        const urlBase = 'https://artesting.apuestasroyal.com/apiRoyal/resultados/';
+    
+        // Construir el nuevo enlace con la fecha actual
+        const nuevoLink = urlBase + fechaActual;
+    
+        console.log('nuevo link: ', nuevoLink);
+    
+        return nuevoLink;
+    }
+
     // URL de la API (reemplaza con la URL real de tu API)
-    const url = 'https://artesting.apuestasroyal.com/apiRoyal/resultados/2023-09-14';
+    const url = generarNuevoLink();
     const resultadosLista = document.getElementById('resultados-lista');
     
     fetch(url)
@@ -18,12 +34,12 @@ function obtenerDatosDeLoteria() {
 
                 // Crea elementos de lista y agrégalos al documento HTML
                 const li = document.createElement('li');
-                li.textContent = `Lotería: ${item.nombre}, Número Ganador: ${item.numero}`;
+                li.textContent = `Lotería: ${item.nombre}, Número Ganador: ${item.numero}, Hora: ${item.hora}`;
                 resultadosLista.appendChild(li);
             });
         })
         .catch(error => {
-            console.error('Error al obtener datos de la API:'+ error);
+            console.error('Error al obtener datos de la API:', error);
         });
 }
 
