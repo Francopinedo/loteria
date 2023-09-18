@@ -23,7 +23,7 @@ function obtenerDatosDeLoteria() {
             });
         })
         .catch(error => {
-            console.error('Error al obtener datos de la API:', error);
+            console.error('Error al obtener datos de la API:'+ error);
         });
 }
 
