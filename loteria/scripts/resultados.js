@@ -1,6 +1,4 @@
-
 function obtenerDatosDeLoteria() {
-    
     function generarNuevoLink() {
         // Obtener la fecha actual en el formato "YYYY-MM-DD"
         const fechaActual = new Date().toISOString().split('T')[0];
@@ -18,25 +16,41 @@ function obtenerDatosDeLoteria() {
 
     // URL de la API (reemplaza con la URL real de tu API)
     const url = generarNuevoLink();
-    const resultadosLista = document.getElementById('resultados-lista');
     
-    fetch(url)
+    fetch('https://artesting.apuestasroyal.com/apiRoyal/resultados/2023-09-17')
         .then(response => response.json())
         .then(data => {
-            // Itera a través de los datos y muestra cada elemento en la consola
-            data.forEach(item => {
-                console.log('Lotería:', item.loteria);
-                console.log('Número:', item.numero);
-                console.log('Nombre:', item.nombre);
-                console.log('Hora:', item.hora);
-                console.log('Fecha:', item.fecha);
-                console.log('-------------------');
+            // Comprueba si estás recibiendo datos de la API
+            console.log('Datos de la API:', data);
 
-                // Crea elementos de lista y agrégalos al documento HTML
-                const li = document.createElement('li');
-                li.textContent = `Lotería: ${item.nombre}, Número Ganador: ${item.numero}, Hora: ${item.hora}`;
-                resultadosLista.appendChild(li);
-            });
+            // Obtén el elemento resultadosContainer
+            const resultadosContainer = document.getElementById('resultados-container');
+
+            if (resultadosContainer) {
+                // Itera a través de los datos y muestra cada elemento en la consola
+                data.forEach(item => {
+                    console.log('Lotería:', item.loteria);
+                    console.log('Número:', item.numero);
+                    console.log('Nombre:', item.nombre);
+                    console.log('Hora:', item.hora);
+                    console.log('Fecha:', item.fecha);
+                    console.log('-------------------');
+
+                    // Crea elementos de tarjeta y agrégaga al documento HTML
+                    const card = document.createElement('div');
+                    card.className = '';
+                    card.innerHTML = `
+                        <div class="bg-white rounded shadow-sm  w-100 mt-3 mb-3 mr-20 ">
+                            <img src="public/no-image-lottery.jpg" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+                            <h5 class="mb-0">${item.nombre}</h5>
+                            <span class="small text-uppercase text-muted">${item.numero}</span>
+                        </div>
+                    `;
+                    resultadosContainer.appendChild(card);
+                });
+            } else {
+                console.error('El elemento con ID "resultados-container" no existe en el HTML.');
+            }
         })
         .catch(error => {
             console.error('Error al obtener datos de la API:', error);

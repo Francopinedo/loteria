@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-    <header>
+    <header class="text-center">
         <div class="hero-image">
           <div class="hero-text">
             <img id="header-img" src="./public/header1.jpg" alt="imgHeader">  
@@ -64,21 +64,31 @@
             <!-- Container wrapper -->
           </nav>
     </header>
+
+
+
+
+
   <!--contenedor de loteria!-->
-  <div class="container-fluid py-3">
-    <div class="row p-5 bg-white" id="container-result">
-      <div class="card col-12">
-        <div class="card-body">
-          <div class="row">
-            <!-- ingresaria los resultados de los sorteos-->
-            <h1>Resultados de Lotería:</h1>
-            <ul id="resultados-lista"></ul>
+  <div class="container py-5 text-center">
+    <div class="col-lg-8 mx-auto">
+        <h1 class="display-4">Resultados de Lotería</h1>
+        <!--Funcion que cambie titulo dependiendo loteria-->  
+        <h2 class="display-4">Ruleta Royal</h2>
+        <div id="resultados-container" class="d-flex  flex-wrap" > </div>
+             
+    </div> 
+</div>
+</div>
 
 
-          </div>
-        </div>
-      </div>
-    </div>
+
+
+
+
+
+
+
     <!--<div class="form-row justify-content-center" id="Contactanos ">
       <form action="action_page.php">
     

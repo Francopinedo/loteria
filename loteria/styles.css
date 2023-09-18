@@ -1,10 +1,11 @@
 *{
   padding: 0;
   margin: 0;
-  color: #EEEEEE;
+  color: black;
   } 
 header,body{
   background-color: #303841;
+  
 }
 
 #header-img{
