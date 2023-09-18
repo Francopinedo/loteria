@@ -19,7 +19,7 @@ background-color:  none !important;
     margin-left: 5%;
     margin-right: 5%;
 }
-#resultados-lista, h1{
+#resultados-lista, h1, li{
   color: black;
 }
 /* Style inputs with type="text", select elements and textareas */

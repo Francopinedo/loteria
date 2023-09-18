@@ -1,6 +1,21 @@
-import { generarNuevoLink } from './link_api_resultado.js';
 
 function obtenerDatosDeLoteria() {
+    
+    function generarNuevoLink() {
+        // Obtener la fecha actual en el formato "YYYY-MM-DD"
+        const fechaActual = new Date().toISOString().split('T')[0];
+    
+        // URL base antes de la fecha
+        const urlBase = 'https://artesting.apuestasroyal.com/apiRoyal/resultados/';
+    
+        // Construir el nuevo enlace con la fecha actual
+        const nuevoLink = urlBase + fechaActual;
+    
+        console.log('nuevo link: ', nuevoLink);
+    
+        return nuevoLink;
+    }
+
     // URL de la API (reemplaza con la URL real de tu API)
     const url = generarNuevoLink();
     const resultadosLista = document.getElementById('resultados-lista');
