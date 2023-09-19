@@ -40,11 +40,31 @@ function obtenerDatosDeLoteria() {
                     const card = document.createElement('div');
                     card.className = '';
                     card.innerHTML = `
-                        <div class="bg-white rounded shadow-sm  w-100 mt-3 mb-3 mr-20 ">
-                            <img src="public/no-image-lottery.jpg" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
-                            <h5 class="mb-0">${item.nombre}</h5>
-                            <span class="small text-uppercase text-muted">${item.numero}</span>
+                    <div class="col-sm-12 col-md-12 col-lg-10 mb-4">
+                    <div class="card text-dark card-has-bg click-col" style="
+                background-image: url('./public/background-card.jpeg'); ">
+                        <div class="card-img-overlay d-flex flex-column">
+                            <div class="card-body">
+                                <small class="card-meta mb-2">${item.hora}</small>
+                                <h4 class="card-title mt-0">
+                                    <a class="text-dark" herf="">${item.nombre}</a>
+                                </h4>
+                                <small><i class="far fa-clock"></i>Numero ${item.numero}</small>
+                            </div>
+                            <div class="card-footer">
+                                <div class="media">
+                                    <img class="mr-3 rounded-circle"
+                                        src="./public/logo1.png?format=auto&version=1688931977&width=80&height=80"
+                                        alt="Generic placeholder image" style="max-width: 50px" />
+                                    <div class="media-body">
+                                        <h6 class="my-0 text-dark d-block">Ruleta Royal</h6>
+                                        <small>17/09/2023</small>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                    </div>
+                </div>
                     `;
                     resultadosContainer.appendChild(card);
                 });
