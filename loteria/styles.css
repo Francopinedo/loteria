@@ -6,7 +6,7 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif ;
   } 
   body {
-    display: flex;
+    /*display: flex;
     flex-direction: column;
     min-height: 100vh; /* Establece el alto mínimo del cuerpo para ocupar al menos toda la ventana */
     background-color: #6a11cb; /* Fallback para navegadores antiguos */
@@ -14,11 +14,10 @@
     background-image: linear-gradient(to right, rgba(106, 17, 203, 0.9), rgba(37, 117, 252, 0.9));
 }
 .content {
-  flex-grow: 1; /* Hace que el contenido crezca y ocupe el espacio restante */
+  flex-grow: 4; /* Hace que el contenido crezca y ocupe el espacio restante */
   padding: 20px; /* Espacio de relleno para el contenido */
   max-width: 1360px; /* Ancho máximo del contenido */
   margin: 0 auto; /* Centra el contenido horizontalmente */
-  
 }
 
 
@@ -39,7 +38,7 @@ nav{
  font-size:  1.2rem ;
  font-weight: 600 ;
  padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 nav a{
   border-radius: 1px;
@@ -52,10 +51,10 @@ nav a{
 width: 3%;
 background-color:  none !important;
 }
-#container-result{
+/*#container-result{
   margin-left: 5%;
   margin-right: 5%;
-}
+}*/
 
 
 
