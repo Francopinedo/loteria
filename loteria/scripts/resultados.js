@@ -45,11 +45,11 @@ function obtenerDatosDeLoteria() {
                                 background-image: url('./public/background-card.png')">
                                 <div class="card-img-overlay d-flex flex-column">
                                     <div class="card-body">
-                                        <small class="card-meta mb-2">${item.hora}</small>
+                                        <small class="card-meta mb-2"><i class="far fa-clock"></i>${item.hora}</small>
                                         <h4 class="card-title mt-0">
                                             <a class="text-dark" herf="">${item.nombre}</a>
                                         </h4>
-                                        <small><i class="far fa-clock"></i>Numero ${item.numero}</small>
+                                        <small>Numero ${item.numero}</small>
                                     </div>
                                     <div class="card-footer">
                                         <div class="media">
