@@ -1,23 +1,16 @@
 *{
   padding: 0;
   margin: 0;
-  color: #EEEEEE ;
+  color: white !important;
   
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif ;
   } 
-  body {
-    /*display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Establece el alto mínimo del cuerpo para ocupar al menos toda la ventana */
-    background-color: #6a11cb; /* Fallback para navegadores antiguos */
-    background-image: -webkit-linear-gradient(to right, rgba(106, 17, 203, 0.9), rgba(37, 117, 252, 0.9));
-    background-image: linear-gradient(to right, rgba(106, 17, 203, 0.9), rgba(37, 117, 252, 0.9));
-}
+
 .content {
-  flex-grow: 4; /* Hace que el contenido crezca y ocupe el espacio restante */
-  padding: 20px; /* Espacio de relleno para el contenido */
-  max-width: 1360px; /* Ancho máximo del contenido */
-  margin: 0 auto; /* Centra el contenido horizontalmente */
+  flex-grow: 4; /* contenido ocupa el espacio restante */
+  padding: 20px; 
+  max-width: 1360px; 
+  margin: 0 auto; 
 }
 
 
@@ -27,7 +20,6 @@
   color: white;
   padding: 20px;
   text-align: center;
-  /* Puedes personalizar el estilo del footer aquí */
 }
 
 
@@ -51,10 +43,7 @@ nav a{
 width: 3%;
 background-color:  none !important;
 }
-/*#container-result{
-  margin-left: 5%;
-  margin-right: 5%;
-}*/
+
 
 
 
@@ -66,14 +55,28 @@ color: white;
 
 
 .gradient-custom {
-  /* fallback for old browsers */
-  background: #6a11cb;
 
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 0.9), rgba(37, 117, 252, 0.9));
+  background: #3E5151;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #DECBA4, #3E5151);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #DECBA4, #3E5151); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
 
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background: linear-gradient(to right, rgba(106, 17, 203, 0.9), rgba(37, 117, 252, 0.9));
+  
+
+  /* background: #C6FFDD; 
+  background: -webkit-linear-gradient(to left, #f7797d, #FBD786, #C6FFDD);  
+  background: linear-gradient(to left, #f7797d, #FBD786, #C6FFDD); */
+  
+
+
+
+
+
+
+ /* background: #BBD2C5;  
+background: -webkit-linear-gradient(to left, #536976, #BBD2C5);  /* Chrome 10-25, Safari 5.1-6 */
+/* background: linear-gradient(to left, #536976, #BBD2C5); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ 
+
 }
 
 #mainNavigation a {
@@ -84,20 +87,11 @@ color: white;
   text-shadow:1px 1px 2px rgba(0,0,0,0.4)
 }
 
-.dropdown-menu {
-  background:#03727d
-}
-a.dropdown-toggle {
-  color:#dfdfdf !important
-}
-a.dropdown-item:hover {
-  color:#03727d !important
-}
-.nav-item a{
-  color:#dfdfdf;
+#logoname:hover{
+  color:black !important;
 }
 .nav-item a:hover {
-  color:#fff
+  color:black !important;
 }
 .nav-item{
   min-width:12vw;
@@ -109,10 +103,10 @@ a.dropdown-item:hover {
   width:100%;
   z-index:123;
   padding-bottom:120px;
-  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+100&0.65+0,0+100;Neutral+Density */
-background: -moz-linear-gradient(top,  rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(top,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to bottom,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+ 
+  background: #BBD2C5;  
+  background: -webkit-linear-gradient(to left, #536976, #BBD2C5);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #536976, #BBD2C5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
 }
 #navbarNavDropdown.collapsing .navbar-nav,
@@ -122,9 +116,20 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', e
 }
 
 
+#tittle-resultados{
+  color: black !important;
+}
 
-
-
+#soporte{
+  color: black !important;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+#soporte:hover{
+  color: white !important;
+  border: 2px solid white;
+  border-radius: 10px;
+}
 
 
 
