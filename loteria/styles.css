@@ -1,10 +1,12 @@
 *{
   padding: 0;
   margin: 0;
-  
-  
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif ;
   } 
+
+  header{
+    height: 100vh;
+  }
 .content {
   flex-grow: 4; /* contenido ocupa el espacio restante */
   padding: 20px; 
@@ -48,10 +50,11 @@ color: white;
 
 .gradient-custom {
 
-  background: #3E5151;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to left, #DECBA4, #3E5151);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to left, #DECBA4, #3E5151); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  
+  background-image: linear-gradient(120deg,#b6d461 0%, #E4E3D7 100%);
+   /* background: #3E5151;  
+  background: -webkit-linear-gradient(to left, #DECBA4, #3E5151); 
+  background: linear-gradient(to left, #DECBA4, #3E5151);  
+   */
 
   
 
@@ -62,14 +65,45 @@ color: white;
 
 
 
-
-
+  
 
  /* background: #BBD2C5;  
 background: -webkit-linear-gradient(to left, #536976, #BBD2C5);  /* Chrome 10-25, Safari 5.1-6 */
 /* background: linear-gradient(to left, #536976, #BBD2C5); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ 
 
 }
+
+
+.bg {
+  animation:slide 20s ease-in-out infinite alternate;
+  background-image:  linear-gradient(-60deg, #ECF5CE 50%, #a1dc00 50%);
+  bottom:0;
+  left:-50%;
+  opacity:.5;
+  position:fixed;
+  right:-50%;
+  top:0;
+  z-index:-1;
+}
+
+.bg2 {
+  animation-direction:alternate-reverse;
+  animation-duration:10s;
+}
+
+.bg3 {
+  animation-duration:5s;
+}
+
+@keyframes slide {
+  0% {
+    transform:translateX(-25%);
+  }
+  100% {
+    transform:translateX(25%);
+  }
+}
+
 
 #mainNavigation a {
   font-family: 'Cabin', sans-serif;
@@ -83,10 +117,11 @@ background: -webkit-linear-gradient(to left, #536976, #BBD2C5);  /* Chrome 10-25
   color:black !important;
 }
 .nav-item a:hover {
-  color:black !important;
+  color:white !important;
 }
 .nav-item{
   min-width:12vw;
+  color:black !important
 }
 #mainNavigation {
   position:fixed;
@@ -112,6 +147,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', e
 }
 
 #soporte{
+  max-width: 200px; 
+  margin: 0 auto; 
+  display: block; 
+  text-align: center; 
   color: black !important;
   border: 2px solid black;
   border-radius: 10px;
@@ -145,6 +184,19 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', e
 .bg-contrast{
   margin-top: 4%;
   
+}
+
+#img-venezuela{
+height: 20vh ;
+width: auto;
+}
+
+#navbarSupportedContent{
+color: black;
+box-shadow: 1px 10px 21px -5px rgba(0,0,0,0.53);
+-webkit-box-shadow: 1px 10px 21px -5px rgba(0,0,0,0.53);
+-moz-box-shadow: 1px 10px 21px -5px rgba(0,0,0,0.53);
+border-radius: 100px;
 }
 
 
