@@ -2,11 +2,17 @@
   padding: 0;
   margin: 0;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif ;
-  } 
+} 
 
-  header{
-    height: 100vh;
+header{
+  height: 70vh;
+  @media (max-width: 990px) {
+    margin-bottom: 15vh;
   }
+}
+body{
+  z-index: 0;
+}
 .content {
   flex-grow: 4; /* contenido ocupa el espacio restante */
   padding: 20px; 
@@ -29,19 +35,26 @@ nav{
   padding-bottom: 0.5rem;
   margin-bottom: 5%;
 }
+
 nav a{
   border-radius: 5px;
   border-color: #45a049;
   
 }
+
 .btn-circle{
   border-radius: 50%;
 }
 
-
 #logo{
   width: 3%;
   background-color:  none !important;
+}
+
+.row{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 #resultados-lista, h1, li{
@@ -56,23 +69,16 @@ color: white;
   background: linear-gradient(to left, #DECBA4, #3E5151);  
    */
 
-  
-
   /* background: #C6FFDD; 
   background: -webkit-linear-gradient(to left, #f7797d, #FBD786, #C6FFDD);  
   background: linear-gradient(to left, #f7797d, #FBD786, #C6FFDD); */
-  
 
-
-
-  
 
  /* background: #BBD2C5;  
 background: -webkit-linear-gradient(to left, #536976, #BBD2C5);  /* Chrome 10-25, Safari 5.1-6 */
 /* background: linear-gradient(to left, #536976, #BBD2C5); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ 
 
 }
-
 
 .bg {
   animation:slide 20s ease-in-out infinite alternate;
@@ -104,7 +110,6 @@ background: -webkit-linear-gradient(to left, #536976, #BBD2C5);  /* Chrome 10-25
   }
 }
 
-
 #mainNavigation a {
   font-family: 'Cabin', sans-serif;
   font-size:14px;
@@ -116,19 +121,22 @@ background: -webkit-linear-gradient(to left, #536976, #BBD2C5);  /* Chrome 10-25
 #logoname:hover{
   color:black !important;
 }
+
 .nav-item a:hover {
   color:white !important;
 }
+
 .nav-item{
   min-width:12vw;
   color:black !important
 }
+
 #mainNavigation {
-  position:fixed;
+  position: fixed;
   top:0;
   left:0;
   width:100%;
-  z-index:123;
+  z-index: index 2;
   padding-bottom:120px;
  
   background: #BBD2C5;  
@@ -155,35 +163,50 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', e
   border: 2px solid black;
   border-radius: 10px;
 }
+
 #soporte:hover{
-  color: white !important;
+  color: rgb(255, 255, 255) !important;
   border: 2px solid white;
   border-radius: 10px;
 }
+
 .header{
   position: relative;
+  @media (max-width: 990px) {
+    margin-bottom: 20vh;
+  }
 }
+
 .col-lg-6{
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  @media (max-width: 990px) {
+    margin-bottom: 5vh;
+  }
 }
+
 .navigation.fixed-top + main .header{
   padding-top: 90px;
 }
+
 .main-shape-wrapper{
   position: sticky;
-  top: 50%;
   right: 0;
   width: 40%;
+  @media (max-width: 990px) {
+    width: 70%;
+  }
 }
+
 .navbar-brand{
   width: 60px; 
   height: auto;
 }
+
 .bg-contrast{
   margin-top: 4%;
-  
 }
 
 #img-venezuela{
@@ -191,20 +214,93 @@ height: 20vh ;
 width: auto;
 }
 
+.content {
+  z-index: 0;
+}
 #navbarSupportedContent{
-color: black;
-box-shadow: 1px 10px 21px -5px rgba(0,0,0,0.53);
--webkit-box-shadow: 1px 10px 21px -5px rgba(0,0,0,0.53);
--moz-box-shadow: 1px 10px 21px -5px rgba(0,0,0,0.53);
-border-radius: 100px;
+  color: rgb(0, 0, 0);
+  box-shadow: 1px 10px 21px -5px rgba(0,0,0,0.53);
+  -webkit-box-shadow: 1px 10px 21px -5px rgba(0,0,0,0.53);
+  -moz-box-shadow: 1px 10px 21px -5px rgba(0,0,0,0.53);
+  border-radius: 100px;
+  margin-right: 1vh;
+  margin-left: 1vh;
+  @media (max-width: 990px) {
+    position: fixed;
+    z-index: 12;
+    background-color: aliceblue;
+    top: 5%;
+    width: 97%;
+    height: auto;
+    transition: opacity 0.5s ease-in-out;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    
+    /*
+    border-radius: 0px;
+    transition: 0.5s;
+    padding-top: 40%;
+    */
+  }
+}
+.navbar-brand{
+  margin-left: 16px;
+}
+.navbar-toggler{
+  margin-left: 1vh;
+}
+.illustration{
+  display: block;
+  width: 70%;
+  @media (max-width: 990px) {
+    width: 100%;
+  }
 }
 
 
 
 
 
+.floating { 
+  animation-name: floating;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  margin-left: 30px;
+  margin-top: 5px;
+}
+
+@keyframes floating {
+  0% { transform: translate(0,  0px); }
+  50%  { transform: translate(0, 15px); }
+  100%   { transform: translate(0, -0px); }   
+}
 
 
+
+a {
+  position: relative;
+  color: #000000 !important;
+}
+
+nav a::before {
+    content: '';
+    position: absolute;
+    width: 30%;
+    height: 3px;
+    border-radius: 1px;
+    background-color: #ffffff;
+    bottom: 0;
+    left: 35%;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .3s ease-in-out;
+  }
+
+nav a:hover::before {
+  transform-origin: left;
+  transform: scaleX(1);
+}
 
 
 
