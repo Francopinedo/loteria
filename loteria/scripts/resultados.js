@@ -1,40 +1,42 @@
+//array imagenes
 const animalImages = {
-  tiburon: "./public/.png",
-  carnero: "./public/.png",
-  toro: "./public/.png",
-  // x: './public/.png',
-  leon: "./public/.png",
-  rana: "./public/.png",
-  // : './public/.png',
-  //: './public/.png',
-  aguila: "./public/.png",
-  tigre: "./public/.png",
-  gato: "./public/.png",
-  caballo: "./public/.png",
-  mono: "./public/.png",
-  paloma: "./public/.png",
-  zorro: "./public/.png",
-  oso: "./public/.png",
-  pavo: "./public/.png",
-  burro: "./public/.png",
-  chivo: "./public/.png",
-  cochino: "./public/.png",
-  gallo: "./public/.png",
-  camello: "./public/.png",
-  // : './public/.png',
-  iguana: "./public/.png",
-  //: './public/.png',
-  vaca: "./public/.png",
-  perro: "./public/.png",
-  zamuro: "./public/.png", //zamuro??
-  elefante: "./public/.png",
-  caiman: "./public/.png",
-  lapa: "./public/.png",
-  //: './public/.png',
-  pescado: "./public/.png",
-  venado: "./public/.png",
-  pantera: "./public/.png",
-  culebra: "./public/culebra.png",
+  tiburon: "./public/animalitos/ruletaroyal_0.png",
+  carnero: "./public/animalitos/ruletaroyal_01.png",
+  toro: "./public/animalitos/ruletaroyal_02.png",
+  ciempies: './public/animalitos/ruletaroyal_03.png',
+  alacran: "./public/animalitos/ruletaroyal_04.png",
+  leon: "./public/animalitos/ruletaroyal_05.png",
+  rana: './public/animalitos/ruletaroyal_06.png',
+  perico: './public/animalitos/ruletaroyal_07.png',
+  raton: "./public/animalitos/ruletaroyal_08.png",
+  aguila: "./public/animalitos/ruletaroyal_09.png",
+  tigre: "./public/animalitos/ruletaroyal_10.png",
+  gato: "./public/animalitos/ruletaroyal_11.png",
+  caballo: "./public/animalitos/ruletaroyal_12.png",
+  mono: "./public/animalitos/ruletaroyal_13.png",
+  paloma: "./public/animalitos/ruletaroyal_14.png",
+  zorro: "./public/animalitos/ruletaroyal_15.png",
+  oso: "./public/animalitos/ruletaroyal_16.png",
+  pavo: "./public/animalitos/ruletaroyal_17.png",
+  burro: "./public/animalitos/ruletaroyal_18.png",
+  chivo: "./public/animalitos/ruletaroyal_19.png",
+  cochino: "./public/animalitos/ruletaroyal_20.png",
+  gallo: "./public/animalitos/ruletaroyal_21.png",
+  camello: './public/animalitos/ruletaroyal_22.png',
+  cebra: "./public/animalitos/ruletaroyal_23.png",
+  iguana: './public/animalitos/ruletaroyal_24.png',
+  gallina: "./public/animalitos/ruletaroyal_25.png",
+  vaca: "./public/animalitos/ruletaroyal_26.png",
+  perro: "./public/animalitos/ruletaroyal_27.png", 
+  zamuro: "./public/animalitos/ruletaroyal_28.png",
+  elefante: "./public/animalitos/ruletaroyal_29.png",
+  caiman: "./public/animalitos/ruletaroyal_30.png",
+  lapa: './public/animalitos/ruletaroyal_31.png',
+  ardilla: "./public/animalitos/ruletaroyal_32.png",
+  pescado: "./public/animalitos/ruletaroyal_33.png",
+  venado: "./public/animalitos/ruletaroyal_34.png",
+  pantera: "./public/animalitos/ruletaroyal_35.png",
+  culebra: "./public/animalitos/ruletaroyal_36.png",
 };
 
 // Array de horarios
@@ -66,6 +68,7 @@ function obtenerImagenAnimal(nombreAnimal) {
 }
 
 function obtenerDatosDeLoteria() {
+  
   function generarNuevoLink() {
     // Obtener la fecha actual en el formato "YYYY-MM-DD"
     const fechaActual = new Date().toISOString().split("T")[0];
@@ -74,7 +77,7 @@ function obtenerDatosDeLoteria() {
 
     // Construir el nuevo enlace con la fecha actual
     const nuevoLink = urlBase + fechaActual;
-
+    console.log(fechaActual);
     console.log("nuevo link: ", nuevoLink);
 
     return nuevoLink;
@@ -82,10 +85,18 @@ function obtenerDatosDeLoteria() {
 
   const url = generarNuevoLink();
 
-  fetch("https://artesting.apuestasroyal.com/apiRoyal/resultados/2023-09-19")
+  fetch(url)
     .then((response) => response.json())
     .then((data) => {
       console.log("Datos de la API:", data);
+      if (data.error === 1) {
+        // Mostrar el mensaje de error en un elemento HTML (por ejemplo, un h1)
+        const mensajeError = document.createElement("h1");
+        mensajeError.textContent = data.message;
+        // Agregar el mensaje de error al contenedor deseado en tu página
+        const contenedorError = document.getElementById("resultados-container");
+        contenedorError.appendChild(mensajeError);
+      } 
 
       //  elemento resultadosContainer
       const resultadosContainer = document.getElementById(
@@ -149,7 +160,7 @@ function obtenerDatosDeLoteria() {
                    <a class="text-dark no-decoration" href="">PROXIMO SORTEO</a>
                </h4>
                <small class="text-dark"></small>
-               <div class="lds-circle"><div></div><div></div><div></div><div></div></div>
+               <div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
            </div>
            <div class="card-footer">
                <div class="media">
@@ -179,6 +190,8 @@ function obtenerDatosDeLoteria() {
           console.log("Nombre:", item.nombre);
           console.log("Hora:", item.hora);
           console.log("Fecha:", item.fecha);
+          let imagen = obtenerImagenAnimal(item.nombre)
+          console.log(obtenerImagenAnimal(item.nombre))
           console.log("-------------------");
           //const imagenAnimal = obtenerImagenAnimal(item.nombre);
           // Crea elementos
@@ -190,11 +203,15 @@ function obtenerDatosDeLoteria() {
                         background-image: url('./public/background-card.png')">
                         <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center">
                             <div class="card-body text-center">
-                                <small class="card-meta mb-2"><i class="far fa-clock dark-icon"></i>${item.hora}</small>
+                            <h4 class="card-meta mb-2"><i class="far fa-clock dark-icon"></i>${item.hora}</h4>
                                 <h4 class="card-title mt-0">
-                                    <a class="text-dark no-decoration" href="">${item.nombre}</a>
+                                    
                                 </h4>
-                                <small class="text-dark">Numero ${item.numero}</small>
+                                
+                                
+                                <img class="mr-3 rounded-circle"
+                                        src="${imagen}"
+                                        alt="Animal" style="max-width: 200px" />
                             </div>
                             <div class="card-footer">
                                 <div class="media">
@@ -222,6 +239,7 @@ function obtenerDatosDeLoteria() {
     })
     .catch((error) => {
       console.error("Error al obtener datos de la API:", error);
+      
     });
 }
 

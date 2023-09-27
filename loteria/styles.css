@@ -80,6 +80,53 @@ background: -webkit-linear-gradient(to left, #536976, #BBD2C5);  /* Chrome 10-25
 
 }
 
+.bg-youtube{
+  background-image: linear-gradient(120deg,#b6d461 0%, #E4E3D7 100%);
+}
+
+.bg-quienessomos{
+  background-image: url('./public/fondo2.jpg'); 
+}
+
+.bg-resultados{
+  background-image: url('./public/fondo2.jpg'); 
+}
+
+hr{
+  position: absolute;
+  border: 0;
+  margin: 0;
+  max-width: 100%;
+  background-position: 50%;
+  box-sizing: border-box;
+ 
+  z-index: 9999;
+}
+.shine {
+  height: 30px;
+  width: 60%;
+  background-image: radial-gradient(
+    farthest-side at 50% -50%,
+    hsla(0, 0%, 0%, 0.5),
+    hsla(0, 0%, 0%, 0));
+  position: relative; 
+  margin-bottom: -2px;
+}
+
+.shine::before {
+  height: 1px;
+  position: absolute;
+  top: -1px;
+  left: 0;
+  right: 0;
+  background-image: linear-gradient(
+    90deg,
+    hsla(0, 0%, 0%, 0),
+    hsla(0, 0%, 0%, 0.75) 50%,
+    hsla(0, 0%, 0%, 0));
+}
+
+
 .bg {
   animation:slide 20s ease-in-out infinite alternate;
   background-image:  linear-gradient(-60deg, #ECF5CE 50%, #a1dc00 50%);
@@ -155,7 +202,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', e
 }
 
 #soporte{
-  max-width: 200px; 
+  max-width: 20%; 
+  max-height: 200px;
   margin: 0 auto; 
   display: block; 
   text-align: center; 
