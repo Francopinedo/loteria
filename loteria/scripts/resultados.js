@@ -68,6 +68,7 @@ function obtenerImagenAnimal(nombreAnimal) {
 }
 
 function obtenerDatosDeLoteria() {
+<<<<<<< HEAD
   
   function generarNuevoLink() {
     // Obtener la fecha actual en el formato "YYYY-MM-DD"
@@ -83,6 +84,53 @@ function obtenerDatosDeLoteria() {
     return nuevoLink;
   }
 
+=======
+
+  function generarNuevoLink() {
+    
+    function obtenerFechaEnVenezuela() {
+      const opcionesFechaHora = {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        timeZone: 'America/Caracas' // Zona horaria de Caracas, Venezuela
+      };
+      const fechaEnVenezuela = new Date().toLocaleString('es-VE', opcionesFechaHora);
+      return fechaEnVenezuela;
+    }
+    
+    // Ejemplo de fecha en formato original (DD/MM/YYYY)
+    const fechaConFormatoOriginal = obtenerFechaEnVenezuela();
+    
+    function convertirFormatoFecha(fechaConFormatoOriginal) {
+      // Divide la fecha en día, mes y año
+      const partesFecha = fechaConFormatoOriginal.split('/');
+      
+      // Las partes de la fecha estarán en el orden día, mes, año (DD/MM/YYYY)
+      const dia = partesFecha[0];
+      const mes = partesFecha[1];
+      const anio = partesFecha[2];
+    
+      // Formatea la fecha en el nuevo formato (YYYY-MM-DD)
+      const fechaFormateada = `${anio}-${mes}-${dia}`;
+      
+      return fechaFormateada;
+    }
+  
+    // Convierte la fecha al formato deseado (YYYY-MM-DD)
+    const fechaFormateada = convertirFormatoFecha(fechaConFormatoOriginal);
+    console.log('Fecha formateada:', fechaFormateada);
+
+    const urlBase = "https://artesting.apuestasroyal.com/apiRoyal/resultados/";
+
+    // Construir el nuevo enlace con la fecha actual
+    const nuevoLink = urlBase + fechaFormateada;
+    console.log("nuevo link: ", nuevoLink);
+
+    return nuevoLink;
+  }
+
+>>>>>>> 0de7a1c132794335527086ef13f9d3e7b6b6a4a6
   const url = generarNuevoLink();
 
   fetch(url)
@@ -113,7 +161,11 @@ function obtenerDatosDeLoteria() {
         let nuevoHorario;
         //verificar que no haya terminado el dia
         
+<<<<<<< HEAD
         if (horarioDeseado !== "11:30 PM") {
+=======
+        if (horarioDeseado !== "10:30 PM") {
+>>>>>>> 0de7a1c132794335527086ef13f9d3e7b6b6a4a6
           // Divide el horario en horas y minutos
           let partesHorario = horarioDeseado.split(" ");
           console.log(partesHorario)
