@@ -32,6 +32,19 @@ body{
   text-align: center;
 }
 
+#navbar {
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+  /* Otros estilos de la barra de navegación */
+}
+
+/* Estilo de la barra de navegación cuando se hace scroll */
+.navbar-scrolled {
+  background-color: #9d87af; /* Cambia el color de fondo al hacer scroll */
+  /* Otros estilos de la barra de navegación cuando se hace scroll */
+}
+
+
 nav{
   background-color: #23293100 ;
   font-size:  1.2rem ;
@@ -61,6 +74,13 @@ nav a{
   background-color:  none !important;
 }
 #img-logo-royal{
+  max-width: 80%;
+  @media (max-width: 780px) {
+    max-width: 40%;
+    margin-bottom: 2rem;
+  }
+}
+#img-apple{
   max-width: 100%;
   @media (max-width: 780px) {
     max-width: 40%;
@@ -68,11 +88,13 @@ nav a{
   }
 }
 #img-gplay{
-  max-width: 100%;
+  max-width: 80%;
   @media (max-width: 780px) {
     max-width: 40%;
+    margin-bottom: 2rem;
   }
 }
+
 .row{
   display: flex;
   flex-wrap: wrap;
@@ -226,20 +248,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', e
 }
 
 #soporte{
-  font-size: 30px;
-<<<<<<< HEAD:styles.css
-  
-  max-width: 30%; 
+  font-size: 30px; 
+  max-width: 80%; 
   max-height: 200px;
   margin: 0 auto; 
   display: block; 
   text-align: center; 
-=======
-  max-height: 200px; 
-  display: grid;
->>>>>>> 20b924874e8222ef6a3dc157baeb078e9e8c7972:loteria/styles.css
   color: black !important;
-  border: 2px solid black;
+  border: 3px solid black;
   border-radius: 10px;
   margin-top: 2rem;
   margin-bottom: 2rem;
@@ -247,8 +263,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', e
 }
 
 #soporte:hover{
-  color: rgb(255, 255, 255) !important;
-  border: 2px solid white;
+  color: #8d69ac !important;
+  border: 3px solid #8a63aa;
   border-radius: 10px;
 }
 
@@ -387,9 +403,14 @@ nav a:hover::before {
   transform: scaleX(1);
 }
 
+#fecha_buscar,#buscar_btn {
+  font-size: 20px !important;
 
+}
 
-
+#fecha_buscar{
+  width: 0px;
+}
 
 
 

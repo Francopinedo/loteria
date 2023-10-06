@@ -80,8 +80,8 @@
       <div class="container overflow-hidden"  id="content">
           <div class="row">
               <div class="col-lg-6">
-                  <h1  class="text-contrast extra-bold display-md-3 display-lg-2 font-lg mb-5  fw-bold text-body-emphasis">Ruleta Royal
-                    <span class="d-block light font-md" style="color:#29de09;  ">¡MAS CHANCES DE GANAR!</span></h1>
+                  <h1  class="text-contrast  display-md-3 display-lg-2 font-lg mb-5 text-body-emphasis">Ruleta Royal
+                    <span class="d-block  font-md fw-bold" style="color:#834fad;  ">¡MAS CHANCES DE GANAR!</span></h1>
                   <h4 class="text-contrast ">Con 37 animalitos, aún con más chance de ganar</h4>
               </div>
               <div class="main-shape-wrapper"><!--Diseño para svg animado-->
@@ -98,39 +98,43 @@
   </header>
 
 
-  <!-- <hr class="shine"> -->
-  <section class="mt-1 bg-resultados " id="quienes-somos-container">
-    
-    <div class="overflow-hidden" style="margin-top: 4rem;display: flex;justify-content: center;">
-      <!--tenia puesto, elimine para ajustar en el css la version movil p-3 p-md-5 m-md-3-->
-      <div class="col-md-6 p-5 text-center">
-        <h1 class="display-3 fw-bold"></h1>
-        <h1  class="text-contrast extra-bold display-md-3 display-lg-2 font-lg mb-3  fw-bold text-body-emphasis">15 Sorteos diarios</h1>
-        <img id="img-venezuela" src="./public/kisspng-venezuela-map-computer-icons-clip-art-north-haverbrook-5b18ab1c99e7c0.1742049415283433246304.png" class=" img-fluid  " alt="Imagen-venezuela">
-        <h2> En todo el territorio nacional </h2>
-        <h1  class="text-contrast extra-bold display-md-3 display-lg-2 font-lg mt-4 mb-4 fw-bold text-body-emphasis">Atencion al cliente las 24 horas</h1>
-        <h3 class="text-contrast extra-bold display-md-3 display-lg-2 font-lg mt-4 mb-1 fw-bold text-body-emphasisl  mb-3">Puntos de Venta</h3> 
-        <h4 class="fw-normal  mb-3 text-contrast no">🌐 wwww.apuestasroyal.com</h4>
-        <h4 class="fw-normal  mb-3 text-contrast">🏦 Puntos de venta Banco Bancamiga </h4>
-        <h4 class="fw-normal mb-3 text-contrast">🏪 Kioscos de tu preferencia</h4>
-        <div class="container">
-          <div class="row" style="align-items: center; margin-top: 3rem;">
-            <div class="col-lg-5 col-md-7">
-              <h4 class="fw-bold text-contrast no mb-3">Juega online</h4>
-              <a href="https://apuestasroyal.com/"><img id="img-logo-royal" src="./public/logo.png" class="img-fluid" alt="logo-royal"></a>
-            </div>
-            <div class="row col-lg-5 col-md-7">
-              <h4 class="fw-bold text-contrast no mb-3">Descarga nuestra App</h4>
-              <a href="https://play.google.com/store/apps/details?id=ruleta.royal"><img id="img-gplay" src="./public/descarga-gplay.png" class="img-fluid mb-2" alt="descarga-gplay"></a>
-              <a href="https://apuestasroyal.com/"><img id="img-gplay" src="./public/descarga-apple2.png" class="img-fluid" alt="descarga-apple"></a>
-            </div>
-          </div>
-        </div>  
-      </div>
-      <div class="product-device shadow-sm d-none d-md-block"></div>
-      <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
+<!--contenedor de loteria!-->
+<section class="wrapper bg-resultados">
+  <div class="container py-5 text-center justify-content-center">
+    <div class="row">
+      <h1 id="tittle-resultados" class="display-4 ">Resultados de Ruleta Royal</h1>
+        <!--Funcion que cambie titulo dependiendo loteria-->  
     </div>
-  </section>
+    <!--Selector de fecha-->
+    <div class="  rounded-3 d-flex justify-content-center">
+      <section class=" p-4 d-flex justify-content-center pb4 " id="calendario">
+        <div class="container">
+          <div class="row" style="display: flex; flex-wrap: nowrap; align-items: center;">
+            <div class="input-group date">
+              <input value="" type="date" class="form-control" id="fecha_buscar" placeholder="fecha"
+              aria-label="fecha"
+              aria-describedby="basic-addon2">
+            </div>
+          <div class="input-goup-append" id="buscar">
+            <button id="buscar_btn" class="btn btn outline-primary button_search" type="button" style="background-color: #b6d461;" onclick="obtenerDatosDeLoteria()">Buscar resultados
+            </button>
+          </div>
+          </div>
+      </section>
+    </div>
+    <div id="resultados-container" class="row">
+      <!--<div id="resultados-container">
+        <!-aca se injecta las tarjetas -->
+      </div-->
+    </div>    
+  </div> 
+</section>
+
+
+
+
+  <!-- <hr class="shine"> -->
+  
   
   <section id="nuestros-sorteos">
     <div class="container overflow-hidden">
@@ -162,48 +166,53 @@
   </section>
 
   <!-- <hr class="shine"> -->
-
-  <!--contenedor de loteria!-->
-  <section class="wrapper bg-resultados">
-    <div class="container py-5 text-center justify-content-center">
-      <div class="row">
-        <h1 id="tittle-resultados" class="display-4 font-weight-bolder py-5">Resultados de Ruleta Royal</h1>
-          <!--Funcion que cambie titulo dependiendo loteria-->  
-      </div>
-      <!--Selector de fecha-->
-      <div class="bg-white border rounded-3 d-flex justify-content-center">
-        <section class="w-50 p-4 d-flex justify-content-center pb4" id="calendario">
-          <div class="container">
-            <div class="row" style="display: flex; flex-wrap: nowrap; align-items: center;">
-              <div class="input-group date">
-                <input value="" type="date" class="form-control" id="fecha_buscar" placeholder="fecha"
-                aria-label="fecha"
-                aria-describedby="basic-addon2">
-              </div>
-            <div class="input-goup-append" id="buscar">
-              <button class="btn btn outline-primary button_search" type="button" style="background-color: #29de09;" onclick="obtenerDatosDeLoteria()">Buscar resultado
-              </button>
+  <section class="mt-1 bg-resultados " id="quienes-somos-container">
+    
+    <div class="overflow-hidden" style="margin-top: 4rem;display: flex;justify-content: center;">
+      <!--tenia puesto, elimine para ajustar en el css la version movil p-3 p-md-5 m-md-3-->
+      <div class="col-md-6 p-5 text-center">
+        <h1 class="display-3 fw-bold"></h1>
+        <h1  class="text-contrast extra-bold display-md-3 display-lg-2 font-lg mb-3  fw-bold text-body-emphasis">15 Sorteos diarios</h1>
+        <img id="img-venezuela" src="./public/kisspng-venezuela-map-computer-icons-clip-art-north-haverbrook-5b18ab1c99e7c0.1742049415283433246304.png" class=" img-fluid  " alt="Imagen-venezuela">
+        <h2> En todo el territorio nacional </h2>
+       
+        <h3 class="text-contrast extra-bold display-md-3 display-lg-2 font-lg mt-4 mb-1 fw-bold text-body-emphasisl  mb-3">Puntos de Venta</h3> 
+        <a class="no-decoration" href="https://www.apuestasroyal.com/"><h4 class="fw-normal  mb-3 text-contrast ">🌐 wwww.apuestasroyal.com</h4></a> 
+        <h4 class="fw-normal  mb-3 text-contrast">🏦 Puntos de venta Banco Bancamiga </h4>
+        <h4 class="fw-normal mb-3 text-contrast">🏪 Kioscos de tu preferencia</h4>
+        <div class="container">
+          <div class="row" style="align-items: center; margin-top: 3rem;">
+            <div class="col-lg-5 col-md-7">
+              <h4 class="fw-bold text-contrast no mb-3">Juega online</h4>
+              <a href="https://apuestasroyal.com/"><img id="img-logo-royal" src="./public/logo.png" class="img-fluid" alt="logo-royal"></a>
             </div>
+            <div class="row col-lg-5 col-md-7">
+              <h4 class="fw-bold text-contrast no mb-3">Descarga nuestra App</h4>
+              <a href="https://play.google.com/store/apps/details?id=ruleta.royal"><img id="img-gplay" src="./public/descarga-gplay.png" class="img-fluid mb-2" alt="descarga-gplay"></a>
+              <a href="https://apuestasroyal.com/"><img id="img-apple" src="./public/descarga-apple2.png" class="img-fluid" alt="descarga-apple"></a>
             </div>
-        </section>
+          </div>
+        </div>  
       </div>
-      <div id="resultados-container" class="row">
-        <!--<div id="resultados-container">
-          <!-aca se injecta las tarjetas -->
-        </div-->
-      </div>    
-    </div> 
+      <div class="product-device shadow-sm d-none d-md-block"></div>
+      <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
+    </div>
   </section>
+  
 
   <section id="Reglas">
 
   </section>
 
    <section class="mt-1" id="permisos">
+    
     <div class="position-relative overflow-hidden text-center d-flex justify-content-center">
       <!--tenia puesto, elimine para ajustar en el css la version movil p-3 p-md-5 m-md-3-->
-      <div class="d-flex justify-content-center">
+      
+      <div class=" justify-content-center">
+        
         <h1 class="display-3 fw-bold"></h1>
+        <h1  class="  display-md-3 display-lg-2 font-lg mt-4 mb-4 ">Atencion al cliente las 24 horas</h1>
           <a class="nav-link" id="soporte" href="https://api.whatsapp.com/send/?phone=%2B584249166846&text&type=phone_number&app_absent=0">
             <i class="fas fa-headphones"></i> Contactar a Soporte
           </a>
@@ -216,14 +225,10 @@
   <footer class="text-center py-1 pt-3 gradient-custom">
     <div id="contacto ">
       <div class="navbar-nav ml-auto mb-2 mb-1 d-flex justify-content-center align-items-center">
-        <!-- <li class="nav-item ">
-          <a class="nav-link " id="soporte" href="https://t.me/apuestasroyaloficial">
-            <i class="fas fa-headphones"></i> Contactar a Soporte
-          </a>
-        </li> -->
-      </ul>
+        <a class="no-decoration " href="https://apuestasroyal.com/"><p>Apuestas Royal &copy; </p></a>
+        <p>Ubicacion: Aragua - Venezuela  //  Licencia Registro 01-L0001-0-2022  </p>
     </div>
-    <a class="no-decoration" href="https://apuestasroyal.com/"><p>Apuestas Royal &copy; </p></a>
+    
   </footer>
 
 <script src="./scripts/closeMenu.js"></script>
@@ -231,5 +236,6 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="./scripts/navbar.js"></script>
 </body>
 </html>
