@@ -71,47 +71,29 @@ function obtenerDatosDeLoteria() {
 
   function generarNuevoLink() {
     
-    function obtenerFechaEnVenezuela() {
-      const opcionesFechaHora = {
-        year: 'numeric',
-        month: '2-digit',
-        day: '2-digit',
-        timeZone: 'America/Caracas' // Zona horaria de Caracas, Venezuela
-      };
-      const fechaEnVenezuela = new Date().toLocaleString('es-VE', opcionesFechaHora);
-      return fechaEnVenezuela;
+    function obtenerFecha() {
+      
+      // Obtén la fecha seleccionada en el input de tipo date
+      const fechaSeleccionada = document.getElementById('fecha_buscar').value;
+
+      // Muestra la fecha en la consola
+      console.log('Fecha seleccionada:', fechaSeleccionada);
     }
     
     // Ejemplo de fecha en formato original (DD/MM/YYYY)
-    const fechaConFormatoOriginal = obtenerFechaEnVenezuela();
-    
-    function convertirFormatoFecha(fechaConFormatoOriginal) {
-      // Divide la fecha en día, mes y año
-      const partesFecha = fechaConFormatoOriginal.split('/');
-      
-      // Las partes de la fecha estarán en el orden día, mes, año (DD/MM/YYYY)
-      const dia = partesFecha[0];
-      const mes = partesFecha[1];
-      const anio = partesFecha[2];
-    
-      // Formatea la fecha en el nuevo formato (YYYY-MM-DD)
-      const fechaFormateada = `${anio}-${mes}-${dia}`;
-      
-      return fechaFormateada;
-    }
-  
-    // Convierte la fecha al formato deseado (YYYY-MM-DD)
-    const fechaFormateada = convertirFormatoFecha(fechaConFormatoOriginal);
-    console.log('Fecha formateada:', fechaFormateada);
+    const fechaConFormatoOriginal = obtenerFecha();
 
     const urlBase = "https://artesting.apuestasroyal.com/apiRoyal/resultados/";
 
     // Construir el nuevo enlace con la fecha actual
-    const nuevoLink = urlBase + fechaFormateada;
+    const nuevoLink = urlBase + fechaConFormatoOriginal;
     console.log("nuevo link: ", nuevoLink);
 
     return nuevoLink;
   }
+
+  // Agrega un evento al botón para llamar a la función mostrarFecha() al hacer clic
+  document.getElementById('buscar').addEventListener('click', obtenerDatosDeLoteria);
 
   const url = generarNuevoLink();
 
@@ -132,7 +114,6 @@ function obtenerDatosDeLoteria() {
       const resultadosContainer = document.getElementById(
         "resultados-container"
       );
-      
       
       if (resultadosContainer) {
         // Crear  card del proximo sorteo

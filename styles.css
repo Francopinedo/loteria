@@ -60,7 +60,19 @@ nav a{
   width: 3%;
   background-color:  none !important;
 }
-
+#img-logo-royal{
+  max-width: 100%;
+  @media (max-width: 780px) {
+    max-width: 40%;
+    margin-bottom: 2rem;
+  }
+}
+#img-gplay{
+  max-width: 100%;
+  @media (max-width: 780px) {
+    max-width: 40%;
+  }
+}
 .row{
   display: flex;
   flex-wrap: wrap;
@@ -215,15 +227,23 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', e
 
 #soporte{
   font-size: 30px;
+<<<<<<< HEAD:styles.css
   
   max-width: 30%; 
   max-height: 200px;
   margin: 0 auto; 
   display: block; 
   text-align: center; 
+=======
+  max-height: 200px; 
+  display: grid;
+>>>>>>> 20b924874e8222ef6a3dc157baeb078e9e8c7972:loteria/styles.css
   color: black !important;
   border: 2px solid black;
   border-radius: 10px;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
 }
 
 #soporte:hover{
@@ -280,24 +300,28 @@ width: auto;
   z-index: 0;
 }
 #navbarSupportedContent{
+  position: fixed;
+  margin-top: 4rem;
+  width: -webkit-fill-available;
+
   color: rgb(0, 0, 0);
   -webkit-box-shadow: 1px 10px 21px -5px rgba(0,0,0,0.53);
   -moz-box-shadow: 1px 10px 21px -5px rgba(0,0,0,0.53);
   box-shadow: 1px 10px 21px -5px rgba(0,0,0,0.53);
   border-radius: 100px;
-  margin-right: 1vh;
-  margin-left: 1vh;
+  margin-right: 1.2vh;
+  z-index: 999;
   @media (max-width: 990px) {
     position: fixed;
     z-index: 12;
+    top: 3%;
     background-color: aliceblue;
-    top: 5%;
+    margin-left: 1.2vh;
     width: 97%;
     height: auto;
     transition: opacity 0.5s ease-in-out;
     padding-top: 10px;
     padding-bottom: 10px;
-    
     /*
     border-radius: 0px;
     transition: 0.5s;
@@ -310,6 +334,9 @@ width: auto;
 }
 .navbar-toggler{
   margin-left: 1vh;
+  position: fixed;
+  top: 2%;
+  left: 1%;
 }
 .illustration{
   display: block;
@@ -319,16 +346,11 @@ width: auto;
   }
 }
 
-
-
-
-
 .floating { 
   animation-name: floating;
   animation-duration: 3s;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
-  margin-left: 30px;
   margin-top: 5px;
 }
 
