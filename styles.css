@@ -5,11 +5,6 @@
 } 
 
 header{
-<<<<<<< HEAD
-  height: 70vh;
-  @media (max-width: 990px) {
-    margin-bottom: 15vh;
-=======
   height: auto;
   @media (max-width: 990px) {
     margin-bottom: 5rem;
@@ -18,7 +13,6 @@ header{
 .container-header{
   @media (max-width: 990px) {
     margin-top: 5rem;
->>>>>>> 0de7a1c132794335527086ef13f9d3e7b6b6a4a6
   }
 }
 body{
@@ -51,13 +45,6 @@ nav a{
   border-radius: 5px;
   border-color: #45a049;
   
-<<<<<<< HEAD
-}
-
-.btn-circle{
-  border-radius: 50%;
-}
-=======
 }
 #solcial-header{
   margin-right: 1rem;
@@ -68,7 +55,6 @@ nav a{
 .btn-circle{
   border-radius: 50%;
 }
->>>>>>> 0de7a1c132794335527086ef13f9d3e7b6b6a4a6
 
 #logo{
   width: 3%;
@@ -195,9 +181,11 @@ hr{
 
 .nav-item a:hover {
   color:white !important;
+  
 }
 
 .nav-item{
+  font-size: 24px;
   min-width:12vw;
   color:black !important
 }
@@ -226,7 +214,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', e
 }
 
 #soporte{
-  max-width: 20%; 
+  font-size: 30px;
+  
+  max-width: 30%; 
   max-height: 200px;
   margin: 0 auto; 
   display: block; 
@@ -291,15 +281,9 @@ width: auto;
 }
 #navbarSupportedContent{
   color: rgb(0, 0, 0);
-<<<<<<< HEAD
-  box-shadow: 1px 10px 21px -5px rgba(0,0,0,0.53);
-  -webkit-box-shadow: 1px 10px 21px -5px rgba(0,0,0,0.53);
-  -moz-box-shadow: 1px 10px 21px -5px rgba(0,0,0,0.53);
-=======
   -webkit-box-shadow: 1px 10px 21px -5px rgba(0,0,0,0.53);
   -moz-box-shadow: 1px 10px 21px -5px rgba(0,0,0,0.53);
   box-shadow: 1px 10px 21px -5px rgba(0,0,0,0.53);
->>>>>>> 0de7a1c132794335527086ef13f9d3e7b6b6a4a6
   border-radius: 100px;
   margin-right: 1vh;
   margin-left: 1vh;
@@ -362,6 +346,7 @@ a {
 }
 
 nav a::before {
+
     content: '';
     position: absolute;
     width: 30%;

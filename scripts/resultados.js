@@ -68,23 +68,6 @@ function obtenerImagenAnimal(nombreAnimal) {
 }
 
 function obtenerDatosDeLoteria() {
-<<<<<<< HEAD
-  
-  function generarNuevoLink() {
-    // Obtener la fecha actual en el formato "YYYY-MM-DD"
-    const fechaActual = new Date().toISOString().split("T")[0];
-
-    const urlBase = "https://artesting.apuestasroyal.com/apiRoyal/resultados/";
-
-    // Construir el nuevo enlace con la fecha actual
-    const nuevoLink = urlBase + fechaActual;
-    console.log(fechaActual);
-    console.log("nuevo link: ", nuevoLink);
-
-    return nuevoLink;
-  }
-
-=======
 
   function generarNuevoLink() {
     
@@ -130,7 +113,6 @@ function obtenerDatosDeLoteria() {
     return nuevoLink;
   }
 
->>>>>>> 0de7a1c132794335527086ef13f9d3e7b6b6a4a6
   const url = generarNuevoLink();
 
   fetch(url)
@@ -161,11 +143,7 @@ function obtenerDatosDeLoteria() {
         let nuevoHorario;
         //verificar que no haya terminado el dia
         
-<<<<<<< HEAD
-        if (horarioDeseado !== "11:30 PM") {
-=======
         if (horarioDeseado !== "10:30 PM") {
->>>>>>> 0de7a1c132794335527086ef13f9d3e7b6b6a4a6
           // Divide el horario en horas y minutos
           let partesHorario = horarioDeseado.split(" ");
           console.log(partesHorario)
