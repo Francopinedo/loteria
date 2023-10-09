@@ -67,65 +67,64 @@ function obtenerImagenAnimal(nombreAnimal) {
   }
 }
 
-
-function obtenerFecha() {
-      
-  // Obtén la fecha seleccionada en el input de tipo date
-  const fechaSeleccionada = document.getElementById('fecha_buscar').value;
-
-  // Muestra la fecha en la consola
-  console.log('Fecha seleccionada:', fechaSeleccionada);
-  return fechaSeleccionada;
+// Función para obtener la fecha actual en formato (DD/MM/YYYY)
+function fechaHoy() {
+  const fechaActual = new Date();
+  const año = fechaActual.getFullYear();
+  const mes = fechaActual.getMonth() + 1;
+  const dia = fechaActual.getDate();
+  console.log(`${año}-${mes < 10 ? '0' : ''}${mes}-${dia < 10 ? '0' : ''}${dia}`)
+  return `${año}-${mes < 10 ? '0' : ''}${mes}-${dia < 10 ? '0' : ''}${dia}`;
 }
 
-function generarNuevoLink() {    
-  // Ejemplo de fecha en formato original (DD/MM/YYYY)
+
+// Función para obtener la fecha seleccionada
+function obtenerFecha() {
+  // Obtén la fecha seleccionada en el input de tipo date
+  const fechaSeleccionada = document.getElementById('fecha_buscar').value;
+  // Si no se ha seleccionado una fecha, utiliza la fecha actual
+  console.log(fechaSeleccionada)
+  return fechaSeleccionada ||fechaHoy();
+}
+
+// Función para generar el nuevo enlace de la API con la fecha
+function generarNuevoLink() {
   const fechaConFormatoOriginal = obtenerFecha();
-
   const urlBase = "https://artesting.apuestasroyal.com/apiRoyal/resultados/";
-
-  // Construir el nuevo enlace con la fecha actual
   const nuevoLink = urlBase + fechaConFormatoOriginal;
-  console.log("nuevo link: ", nuevoLink);
-
+  console.log("Nuevo enlace de la API:", nuevoLink);
   return nuevoLink;
 }
 
+// Función para limpiar el contenido del contenedor de resultados
 function limpiarContenido() {
   const resultadosContainer = document.getElementById("resultados-container");
- 
-    // Eliminar todos los elementos hijos del contenedor
-    while (resultadosContainer.firstChild) {
-      resultadosContainer.removeChild(resultadosContainer.firstChild);
-    }
-  resultadosContainer.innerHTML= '';
-  window.location.href = window.location.href;
+
+  while (resultadosContainer.firstChild) {
+    resultadosContainer.removeChild(resultadosContainer.firstChild);
+  }
 }
 
-
-
-function obtenerDatosDeLoteria() {
+async function obtenerDatosDeLoteria() {
   const url = generarNuevoLink();
-  limpiarContenido()
-  fetch(url)
-    .then((response) => response.json())
-    .then((data) => {
-      console.log("Datos de la API:", data);
-      if (data.error === 1) {
-        // Mostrar el mensaje de error en un elemento HTML (por ejemplo, un h1)
-        const mensajeError = document.createElement("h1");
-        mensajeError.textContent = data.message;
-        // Agregar el mensaje de error al contenedor deseado en tu página
-        const contenedorError = document.getElementById("resultados-container");
-        contenedorError.appendChild(mensajeError);
-      } 
+  limpiarContenido();
 
-      //  elemento resultadosContainer
-      const resultadosContainer = document.getElementById(
-        "resultados-container"
-      );
-      
-          
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+
+    console.log("Datos de la API:", data);
+
+    if (data.error === 1) {
+      const mensajeError = document.createElement("h1");
+      mensajeError.textContent = data.message;
+      const contenedorError = document.getElementById("resultados-container");
+      contenedorError.appendChild(mensajeError);
+    }
+
+    const resultadosContainer = document.getElementById("resultados-container");
+
+   
       if (resultadosContainer) {
         // Crear  card del proximo sorteo
         //console.log("Card proximo sorteo");
@@ -169,12 +168,8 @@ function obtenerDatosDeLoteria() {
           //console.log("Horario original:"+ horarioDeseado);
          // console.log("Nuevo horario:"+ nuevoHorario);
         
-          // Vaciar el contenido actual del contenedor resultadosContainer
+        
           
-          
-          // resultadosContainer.innerHTML = " ";
-          // limpiarContenido()
-          // Crear div para resultados fuera del bucle
           const cardAdicional = document.createElement("div");
           cardAdicional.className = 'class="col-sm-12 col-md-6 col-lg-4 mb-4';
           cardAdicional.innerHTML = `
@@ -255,16 +250,19 @@ function obtenerDatosDeLoteria() {
           `;
           resultadosContainer.appendChild(card);
         });
-      } else {
-        console.error(
-          'El elemento con ID "resultados-container" no existe en el HTML.'
-        );
-      }
-    })
-    .catch((error) => {
-      console.error("Error al obtener datos de la API:", error);
-    });
+      
+    } else {
+      console.error('El elemento con ID "resultados-container" no existe en el HTML.');
+    }
+  } catch (error) {
+    console.error("Error al obtener datos de la API:", error);
+  }
 }
 
+
 //
-//document.addEventListener("DOMContentLoaded", obtenerDatosDeLoteria);
+// Ejecutar la función obtenerDatosDeLoteria() al cargar la página
+document.addEventListener("DOMContentLoaded", obtenerDatosDeLoteria);
+
+// Agregar un evento al botón para ejecutar obtenerDatosDeLoteria() cuando se presione
+document.getElementById("buscar_btn").addEventListener("click", obtenerDatosDeLoteria);
