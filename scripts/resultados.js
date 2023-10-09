@@ -107,7 +107,13 @@ function limpiarContenido() {
 
 async function obtenerDatosDeLoteria() {
   const url = generarNuevoLink();
-  limpiarContenido();
+  // Obtener el contenedor de resultados
+  const resultadosContainer = document.getElementById("resultados-container");
+
+  // Verificar si ya hay resultados en el contenedor y limpiarlos si es necesario
+  if (resultadosContainer.hasChildNodes()) {
+    limpiarContenido();
+  }
 
   try {
     const response = await fetch(url);
