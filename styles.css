@@ -35,13 +35,13 @@ body{
 #navbar {
   background-color: transparent;
   transition: background-color 0.3s ease;
-  /* Otros estilos de la barra de navegación */
+  
 }
 
 /* Estilo de la barra de navegación cuando se hace scroll */
 .navbar-scrolled {
   background-color: #9d87af; /* Cambia el color de fondo al hacer scroll */
-  /* Otros estilos de la barra de navegación cuando se hace scroll */
+ 
 }
 
 
@@ -106,22 +106,7 @@ color: white;
 }
 
 .gradient-custom {
-
   background-image: linear-gradient(120deg,#b6d461 0%, #E4E3D7 100%);
-   /* background: #3E5151;  
-  background: -webkit-linear-gradient(to left, #DECBA4, #3E5151); 
-  background: linear-gradient(to left, #DECBA4, #3E5151);  
-   */
-
-  /* background: #C6FFDD; 
-  background: -webkit-linear-gradient(to left, #f7797d, #FBD786, #C6FFDD);  
-  background: linear-gradient(to left, #f7797d, #FBD786, #C6FFDD); */
-
-
- /* background: #BBD2C5;  
-background: -webkit-linear-gradient(to left, #536976, #BBD2C5);  /* Chrome 10-25, Safari 5.1-6 */
-/* background: linear-gradient(to left, #536976, #BBD2C5); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ 
-
 }
 
 .bg-youtube{
@@ -412,19 +397,3 @@ nav a:hover::before {
   width: 0px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-/* CARDSSSSSSSSSSSSSSSSSSSSSSSSSSSS *//* CARDSSSSSSSSSSSSSSSSSSSSSSSSSSSS *//* CARDSSSSSSSSSSSSSSSSSSSSSSSSSSSS *//* CARDSSSSSSSSSSSSSSSSSSSSSSSSSSSS */
-/* Style inputs with type="text", select elements and textareas */
-
-
-/* CARDSSSSSSSSSSSSSSSSSSSSSSSSSSSS *//* CARDSSSSSSSSSSSSSSSSSSSSSSSSSSSS *//* CARDSSSSSSSSSSSSSSSSSSSSSSSSSSSS *//* CARDSSSSSSSSSSSSSSSSSSSSSSSSSSSS */

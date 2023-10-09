@@ -220,7 +220,7 @@ async function obtenerDatosDeLoteria() {
           let imagen = obtenerImagenAnimal(item.nombre)
           // console.log(obtenerImagenAnimal(item.nombre))
           console.log("-------------------");
-          //const imagenAnimal = obtenerImagenAnimal(item.nombre);
+          
           // Crea elementos
           const card = document.createElement("div");
           card.className = 'class="col-sm-12 col-md-6 col-lg-4 mb-4';
@@ -270,5 +270,5 @@ async function obtenerDatosDeLoteria() {
 // Ejecutar la función obtenerDatosDeLoteria() al cargar la página
 document.addEventListener("DOMContentLoaded", obtenerDatosDeLoteria);
 
-// Agregar un evento al botón para ejecutar obtenerDatosDeLoteria() cuando se presione
+// Agregar un evento al botón para ejecutar obtenerDatosDeLoteria() 
 document.getElementById("buscar_btn").addEventListener("click", obtenerDatosDeLoteria);
