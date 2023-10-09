@@ -83,14 +83,14 @@ nav a{
 #img-apple{
   max-width: 100%;
   @media (max-width: 780px) {
-    max-width: 40%;
+    max-width: 78%;
     margin-bottom: 2rem;
   }
 }
 #img-gplay{
   max-width: 80%;
   @media (max-width: 780px) {
-    max-width: 40%;
+    max-width: 60%;
     margin-bottom: 2rem;
   }
 }
@@ -248,7 +248,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', e
 }
 
 #soporte{
-  font-size: 30px; 
+  font-size: 20px; 
   max-width: 80%; 
   max-height: 200px;
   margin: 0 auto; 

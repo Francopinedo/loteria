@@ -67,36 +67,46 @@ function obtenerImagenAnimal(nombreAnimal) {
   }
 }
 
-function obtenerDatosDeLoteria() {
 
-  function generarNuevoLink() {
-    
-    function obtenerFecha() {
+function obtenerFecha() {
       
-      // Obtén la fecha seleccionada en el input de tipo date
-      const fechaSeleccionada = document.getElementById('fecha_buscar').value;
+  // Obtén la fecha seleccionada en el input de tipo date
+  const fechaSeleccionada = document.getElementById('fecha_buscar').value;
 
-      // Muestra la fecha en la consola
-      console.log('Fecha seleccionada:', fechaSeleccionada);
+  // Muestra la fecha en la consola
+  console.log('Fecha seleccionada:', fechaSeleccionada);
+  return fechaSeleccionada;
+}
+
+function generarNuevoLink() {    
+  // Ejemplo de fecha en formato original (DD/MM/YYYY)
+  const fechaConFormatoOriginal = obtenerFecha();
+
+  const urlBase = "https://artesting.apuestasroyal.com/apiRoyal/resultados/";
+
+  // Construir el nuevo enlace con la fecha actual
+  const nuevoLink = urlBase + fechaConFormatoOriginal;
+  console.log("nuevo link: ", nuevoLink);
+
+  return nuevoLink;
+}
+
+function limpiarContenido() {
+  const resultadosContainer = document.getElementById("resultados-container");
+ 
+    // Eliminar todos los elementos hijos del contenedor
+    while (resultadosContainer.firstChild) {
+      resultadosContainer.removeChild(resultadosContainer.firstChild);
     }
-    
-    // Ejemplo de fecha en formato original (DD/MM/YYYY)
-    const fechaConFormatoOriginal = obtenerFecha();
+  resultadosContainer.innerHTML= '';
+  window.location.href = window.location.href;
+}
 
-    const urlBase = "https://artesting.apuestasroyal.com/apiRoyal/resultados/";
 
-    // Construir el nuevo enlace con la fecha actual
-    const nuevoLink = urlBase + fechaConFormatoOriginal;
-    console.log("nuevo link: ", nuevoLink);
 
-    return nuevoLink;
-  }
-
-  // Agrega un evento al botón para llamar a la función mostrarFecha() al hacer clic
-  document.getElementById('buscar').addEventListener('click', obtenerDatosDeLoteria);
-
+function obtenerDatosDeLoteria() {
   const url = generarNuevoLink();
-
+  limpiarContenido()
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
@@ -115,9 +125,10 @@ function obtenerDatosDeLoteria() {
         "resultados-container"
       );
       
+          
       if (resultadosContainer) {
         // Crear  card del proximo sorteo
-        console.log("Card proximo sorteo");
+        //console.log("Card proximo sorteo");
         //toma el ultimo sorteo hecho del momento
         let horarioDeseado = data[0].hora;
        
@@ -127,8 +138,9 @@ function obtenerDatosDeLoteria() {
         if (horarioDeseado !== "10:30 PM") {
           // Divide el horario en horas y minutos
           let partesHorario = horarioDeseado.split(" ");
-          console.log(partesHorario)
+          //console.log(partesHorario)
           let horaMinutos = partesHorario[0].split(":");
+          //console.log(horaMinutos)
           let amPm = partesHorario[1];
 
           // Convierte las partes en números enteros
@@ -154,93 +166,94 @@ function obtenerDatosDeLoteria() {
 
           nuevoHorario = nuevaHora+":"+minutos+amPm;
          
-          console.log("Horario original:"+ horarioDeseado);
-          console.log("Nuevo horario:"+ nuevoHorario);
+          //console.log("Horario original:"+ horarioDeseado);
+         // console.log("Nuevo horario:"+ nuevoHorario);
         
-        
+          // Vaciar el contenido actual del contenedor resultadosContainer
+          
+          
+          // resultadosContainer.innerHTML = " ";
+          // limpiarContenido()
+          // Crear div para resultados fuera del bucle
           const cardAdicional = document.createElement("div");
           cardAdicional.className = 'class="col-sm-12 col-md-6 col-lg-4 mb-4';
           cardAdicional.innerHTML = `
-     <div>
-       <div class="card text-dark card-has-bg click-col mb-4" style="
-           background-image: url('./public/background-card.png')">
-           <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center">
-           <div class="card-body text-center">
-               <small class="card-meta mb-2"><i class="far fa-clock dark-icon"></i>${nuevoHorario}</small>
-               <h4 class="card-title mt-5">
-                   <a class="text-dark no-decoration" href="">PROXIMO SORTEO</a>
-               </h4>
-               <small class="text-dark"></small>
-               <div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-           </div>
-           <div class="card-footer">
-               <div class="media">
-                   <img class="mr-3 rounded-circle"
-                       src="./public/logo1.png?format=auto&version=1688931977&width=80&height=80"
-                       alt="Generic placeholder image" style="max-width: 50px" />
-                   <div class="media-body">
-                       <h6 class="my-0 text-dark d-block">Ruleta Royal</h6>
-                       <small class="text-dark">${data[0].fecha}</small>
-                   </div>
-               </div>
-           </div>
-       </div>
-       </div>
-     </div>
-   `;
+            <div>
+              <div class="card text-dark card-has-bg click-col mb-4" style="
+                background-image: url('./public/background-card.png')">
+                <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center">
+                  <div class="card-body text-center">
+                    <small class="card-meta mb-2"><i class="far fa-clock dark-icon"></i>${nuevoHorario}</small>
+                    <h4 class="card-title mt-5">
+                      <a class="text-dark no-decoration" href="">PROXIMO SORTEO</a>
+                    </h4>
+                    <small class="text-dark"></small>
+                    <div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+                  </div>
+                  <div class="card-footer">
+                    <div class="media">
+                      <img class="mr-3 rounded-circle"
+                        src="./public/logo1.png?format=auto&version=1688931977&width=80&height=80"
+                        alt="Generic placeholder image" style="max-width: 50px" />
+                      <div class="media-body">
+                        <h6 class="my-0 text-dark d-block">Ruleta Royal</h6>
+                        <small class="text-dark">${data[0].fecha}</small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `;
   
           // Agregar la nueva card al contenedor de resultados
           resultadosContainer.appendChild(cardAdicional);
-  
         }
-
         
         data.forEach((item) => {
-          console.log("Lotería:", item.loteria);
-          console.log("Número:", item.numero);
-          console.log("Nombre:", item.nombre);
-          console.log("Hora:", item.hora);
-          console.log("Fecha:", item.fecha);
+          // console.log("Lotería:", item.loteria);
+          // console.log("Número:", item.numero);
+          // console.log("Nombre:", item.nombre);
+          // console.log("Hora:", item.hora);
+          // console.log("Fecha:", item.fecha);
           let imagen = obtenerImagenAnimal(item.nombre)
-          console.log(obtenerImagenAnimal(item.nombre))
+          // console.log(obtenerImagenAnimal(item.nombre))
           console.log("-------------------");
           //const imagenAnimal = obtenerImagenAnimal(item.nombre);
           // Crea elementos
           const card = document.createElement("div");
           card.className = 'class="col-sm-12 col-md-6 col-lg-4 mb-4';
           card.innerHTML = `
-                    <div>
-                    <div class="card text-dark card-has-bg click-col mb-4" style="
-                        background-image: url('./public/background-card.png')">
-                        <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center">
-                            <div class="card-body text-center">
-                            <h4 class="card-meta mb-2"><i class="far fa-clock dark-icon"></i>${item.hora}</h4>
-                                <h4 class="card-title mt-0">
-                                    
-                                </h4>
-                                
-                                
-                                <img class="mr-3 rounded-circle"
-                                        src="${imagen}"
-                                        alt="Animal" style="max-width: 200px" />
-                            </div>
-                            <div class="card-footer">
-                                <div class="media">
-                                    <img class="mr-3 rounded-circle"
-                                        src="./public/logo1.png?format=auto&version=1688931977&width=80&height=80"
-                                        alt="Generic placeholder image" style="max-width: 50px" />
-                                    <div class="media-body">
-                                        <h6 class="my-0 text-dark d-block">Ruleta Royal</h6>
-                                        <small class="text-dark">${item.fecha}</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+            <div>
+              <div class="card text-dark card-has-bg click-col mb-4" style="
+                background-image: url('./public/background-card.png')">
+                <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center">
+                  <div class="card-body text-center">
+                    <h4 class="card-meta mb-2"><i class="far fa-clock dark-icon"></i>${item.hora}</h4>
+                    <h4 class="card-title mt-0">
+                      
+                    </h4>
+                    
+                    <img class="mr-3 rounded-circle"
+                      src="${imagen}"
+                      alt="Animal" style="max-width: 200px" />
+                  </div>
+                  <div class="card-footer">
+                    <div class="media">
+                      <img class="mr-3 rounded-circle"
+                        src="./public/logo1.png?format=auto&version=1688931977&width=80&height=80"
+                        alt="Generic placeholder image" style="max-width: 50px" />
+                      <div class="media-body">
+                        <h6 class="my-0 text-dark d-block">Ruleta Royal</h6>
+                        <small class="text-dark">${item.fecha}</small>
+                      </div>
                     </div>
+                  </div>
                 </div>
-                
-                    `;
-                    resultadosContainer.appendChild(card);
+              </div>
+            </div>
+          `;
+          resultadosContainer.appendChild(card);
         });
       } else {
         console.error(
@@ -250,9 +263,8 @@ function obtenerDatosDeLoteria() {
     })
     .catch((error) => {
       console.error("Error al obtener datos de la API:", error);
-      
     });
 }
 
 //
-document.addEventListener("DOMContentLoaded", obtenerDatosDeLoteria);
+//document.addEventListener("DOMContentLoaded", obtenerDatosDeLoteria);

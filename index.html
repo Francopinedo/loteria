@@ -100,35 +100,28 @@
 
 <!--contenedor de loteria!-->
 <section class="wrapper bg-resultados">
-  <div class="container py-5 text-center justify-content-center">
+  <div class="container py-5">
     <div class="row">
-      <h1 id="tittle-resultados" class="display-4 ">Resultados de Ruleta Royal</h1>
-        <!--Funcion que cambie titulo dependiendo loteria-->  
+      <div class="col-12 text-center">
+        <h1 id="tittle-resultados" class="display-4">Resultados de Ruleta Royal</h1>
+        <!-- Función que cambie el título dependiendo de la lotería -->
+      </div>
     </div>
-    <!--Selector de fecha-->
-    <div class="  rounded-3 d-flex justify-content-center">
-      <section class=" p-4 d-flex justify-content-center pb4 " id="calendario">
-        <div class="container">
-          <div class="row" style="display: flex; flex-wrap: nowrap; align-items: center;">
-            <div class="input-group date">
-              <input value="" type="date" class="form-control" id="fecha_buscar" placeholder="fecha"
-              aria-label="fecha"
-              aria-describedby="basic-addon2">
-            </div>
-          <div class="input-goup-append" id="buscar">
-            <button id="buscar_btn" class="btn btn outline-primary button_search" type="button" style="background-color: #b6d461;" onclick="obtenerDatosDeLoteria()">Buscar resultados
-            </button>
-          </div>
-          </div>
-      </section>
+    <!-- Selector de fecha -->
+    <div class="rounded-3 d-flex justify-content-center">
+      <div class="col-md-6">
+        <div class="input-group mb-6">
+          <input value="" type="date" class="form-control" id="fecha_buscar" placeholder="Fecha" aria-label="Fecha" aria-describedby="basic-addon2">
+          <button id="buscar_btn" class="btn " type="button" style="background-color: #b6d461;" onclick="obtenerDatosDeLoteria()">Buscar resultados</button>
+        </div>
+      </div>
     </div>
     <div id="resultados-container" class="row">
-      <!--<div id="resultados-container">
-        <!-aca se injecta las tarjetas -->
-      </div-->
-    </div>    
-  </div> 
+      <!-- Aca se inyectan las tarjetas -->
+    </div>
+  </div>
 </section>
+
 
 
 
